@@ -7,7 +7,7 @@
 #diary("chapter3matlab.log")
 
 using DelimitedFiles, Printf
-include("printmat.jl")
+include("jlFiles/printmat.jl")
 
 
 #   Load the data & create subsamples

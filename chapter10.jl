@@ -10,8 +10,8 @@
 #diary("chapter10matlab.log")
 
 using DelimitedFiles, Printf, LinearAlgebra, Statistics, Random, Distributions
-include("printmat.jl")
-include("ExtraFunctions.jl")      #some extra utility functions
+include("jlFiles/printmat.jl")
+include("jlFiles/ExtraFunctions.jl")      #some extra utility functions
 
 
 B = 10_000

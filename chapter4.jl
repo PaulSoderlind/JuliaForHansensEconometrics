@@ -8,7 +8,7 @@
 
 
 using DelimitedFiles, Printf, LinearAlgebra, Statistics, Distributions, XLSX
-include("printmat.jl")
+include("jlFiles/printmat.jl")
 
 
 #diary("chapter4matlab.log")

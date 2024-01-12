@@ -7,8 +7,8 @@
 # Load the data & create variables
 
 using DelimitedFiles, Printf, LinearAlgebra
-include("printmat.jl")
-include("ExtraFunctions.jl")      #some extra utility functions
+include("jlFiles/printmat.jl")
+include("jlFiles/ExtraFunctions.jl")      #some extra utility functions
 
 
 #   Load the data & create subsamples
