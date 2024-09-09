@@ -192,7 +192,7 @@ betas1 = thetas[:,1]
 theta4 = thetas[:,4]
 b1 = beta[1]
 bootreps = [b1 mu; betas1 theta4]
-fileID = open("bootreps.txt","w")
+fileID = open("Results/bootreps.txt","w")
     printmat(fileID,bootreps;width=12,prec=8)   #saves the bootreps matrix as is
 close(fileID)
 ##------------------------------------------------------------

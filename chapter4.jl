@@ -3,11 +3,11 @@
 ### empirical work reported
 ### in Chapter 4
 ###
-### Uses data files cps09mar.txt; DDK2011.xlsx
+### Uses data files cps09mar.txt; DDK2011.dta
 #####################################
 
 
-using DelimitedFiles, Printf, LinearAlgebra, Statistics, Distributions, XLSX
+using DelimitedFiles, Printf, LinearAlgebra, Statistics, Distributions, ReadStatTables
 include("jlFiles/printmat.jl")
 
 
@@ -146,12 +146,11 @@ pvalF = ccdf(FDist(q,n-k),F)
 printmat([W pvalW;F pvalF];colNames=["test stat","p-value"],rowNames=["Wald","F"])
 
 # DDK [2011]
-
 # Load the data & create variables
-data = XLSX.readdata("Data/DDK2011.xlsx","Sheet1","A2:BJ5796")
-schoolid   = convert.(Int,data[:,2])
-tracking   = convert.(Int,data[:,7])
-totalscore = convert.(Float64,data[:,39])
+data = readstat("Data/DDK2011.dta")   #read data using the ReadStatTables.jl package
+schoolid   = convert.(Int,data.schoolid)
+tracking   = convert.(Int,data.tracking)
+totalscore = convert.(Float64,data.totalscore)
 
 y = (totalscore .- mean(totalscore))./std(totalscore)
 x = [tracking ones(size(y,1))]
