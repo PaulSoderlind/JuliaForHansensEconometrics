@@ -1,16 +1,12 @@
-using Printf, LinearAlgebra, DelimitedFiles, Statistics
+using Printf, LinearAlgebra, DelimitedFiles, Statistics, ReadStatTables
 
 include("jlFiles/printmat.jl")
 include("jlFiles/UtilityFunctions.jl")
 
+x  = readstat("Data/DDK2011.dta")   #read data using the ReadStatTables.jl package
 
-(x,header) = readdlm("Data/DKK2011.csv",',',header=true)   #load data
-replace!(x,"NA"=>NaN)
-x      = x[:,2:end]
-header = header[2:end]
-
-XX = PutDataInNT(x,header)                           #put data in Named Tuple
-X  = excise(hcat(XX.wordscore,XX.sentscore,XX.letterscore,XX.spellscore,XX.additions_score,XX.substractions_score,XX.multiplications_score))
+X  = excise( hcat(x.wordscore,x.sentscore,x.letterscore,x.spellscore,x.additions_score,
+                 x.substractions_score,x.multiplications_score) )
 ##----------------------------------------------------------
 
 """
